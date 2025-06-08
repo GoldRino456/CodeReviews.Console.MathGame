@@ -3,61 +3,60 @@
 public class Menu
 {
     private const string _titleText = " ____    ____       _     _________  ____  ____ \r\n|_   \\  /   _|     / \\   |  _   _  ||_   ||   _|\r\n  |   \\/   |      / _ \\  |_/ | | \\_|  | |__| |  \r\n  | |\\  /| |     / ___ \\     | |      |  __  |  \r\n _| |_\\/_| |_  _/ /   \\ \\_  _| |_    _| |  | |_ \r\n|_____||_____||____| |____||_____|__|____||____|\r\n .' ___  |     / \\     |_   \\  /   _||_   __  | \r\n/ .'   \\_|    / _ \\      |   \\/   |    | |_ \\_| \r\n| |   ____   / ___ \\     | |\\  /| |    |  _| _  \r\n\\ `.___]  |_/ /   \\ \\_  _| |_\\/_| |_  _| |__/ | \r\n `._____.'|____| |____||_____||_____||________| ";
+    private const string _lineBreak = "----------";
 
-    public int ProcessMenu()
+    public int ProcessMenu(InputHandler inputHandler)
     {
-        return 0;
-    }
-    private void DisplayMenu()
-    {
-        Console.WriteLine("----------");
-        Console.WriteLine("1 - Start Game\n2 - View High Scores\n\n0 - Quit");
-        Console.WriteLine("----------");
+        int selection = -1;
+        bool isInputValid = true;
+
+        while(true)
+        {
+            Console.Clear();
+            Console.WriteLine(_titleText + "\n" + _lineBreak);
+            Console.WriteLine("1- Start Game\n2- View Previous Scores\n0- Quit");
+            Console.WriteLine(_lineBreak + "\n");
+
+            if(!isInputValid)
+            {
+                inputHandler.NotifyInvalidInputInt();
+            }
+
+            selection = inputHandler.PromptForInputInt();
+
+            switch(selection)
+            {
+                case 1:
+                    return ProcessGameSelection();
+                case 2:
+                    ProcessViewPreviousScores();
+                    break;
+                case 0:
+                    return ProcessQuitGame();
+                default:
+                    isInputValid = false;
+                    break;
+            }
+        }
     }
 
     private int ProcessGameSelection()
     {
-        int gameSelection = -1;
-        DisplayGameSelection();
-
-        while (true)
-        {
-            gameSelection = PromptGameSelection();
-
-            if (gameSelection > -1)
-            {
-                break;
-            }
-        }
-        
-        return gameSelection;
+        Console.Clear();
+        Console.WriteLine("Game Selection goes here.");
+        return -1;
     }
 
-    private void DisplayGameSelection()
+    private void ProcessViewPreviousScores()
     {
-        Console.WriteLine("----------");
-        Console.WriteLine("Select A Game: ");
-        Console.WriteLine("1 - Addition\n2 - Subtraction\n3 - Multiplication\n4 - Division\n5 - Random Mode");
-        Console.WriteLine("----------");
+        Console.Clear();
+        Console.WriteLine("Press Enter To Continue...");
+        Console.ReadLine();
     }
 
-    private int PromptGameSelection()
+    private int ProcessQuitGame()
     {
-        int gameSelection = -1;
-
-        Console.Write("Please Make A Selection: ");
-        string? input = Console.ReadLine();
-        bool isValidInteger = int.TryParse(input, out gameSelection);
-        
-        if(isValidInteger)
-        {
-            Console.WriteLine($"Valid Input: {gameSelection}");
-            return gameSelection;
-        }
-        else
-        {
-            Console.WriteLine("Invalid input.");
-            return -1;
-        }
+        Console.WriteLine("Closing...");
+        return 0;
     }
 }
