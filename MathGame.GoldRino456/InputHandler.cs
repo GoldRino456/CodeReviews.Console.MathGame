@@ -4,7 +4,7 @@ public class InputHandler
 {
     public int PromptForInputInt()
     {
-        int value = -1;
+        int value = Int32.MinValue;
 
         Console.Write("Please Enter A Selection: ");
         string? input = Console.ReadLine();
@@ -16,7 +16,7 @@ public class InputHandler
         }
         else
         {
-            return -1;
+            return Int32.MinValue;
         }
     }
 

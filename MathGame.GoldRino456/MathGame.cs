@@ -6,11 +6,22 @@ class MathGame
     {
         var inputHandler = new InputHandler();
         var menu = new Menu();
+        var gameManager = new GameManager();
+        var gameHistory = new GameHistory();
 
         while(true)
         {
-            menu.ProcessMenu(inputHandler);
-            break;
+            int choice = menu.ProcessMenu(inputHandler, gameHistory);
+            
+            if(choice == 0)
+            {
+                break;
+            }
+            else
+            {
+                GameHistoryEntry newEntry = gameManager.StartGame(choice, inputHandler);
+                gameHistory.AddEntryToHistory(newEntry);
+            }
         }
     }
 }
