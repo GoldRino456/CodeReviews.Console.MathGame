@@ -1,6 +1,4 @@
-﻿using System;
-
-public class InputHandler
+﻿public class InputHandler
 {
     public int PromptForInputInt()
     {

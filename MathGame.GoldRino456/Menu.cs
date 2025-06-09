@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Menu
+﻿public class Menu
 {
     private Dictionary<int, string> _gameTypes = new Dictionary<int, string> { { 1, "Addition (+)" }, { 2, "Subtraction (-)" }, { 3, "Multiplication (*)" }, { 4, "Division (/)" }, { 5, "Random! (?)" } };
     private const string _titleText = " ____    ____       _     _________  ____  ____ \r\n|_   \\  /   _|     / \\   |  _   _  ||_   ||   _|\r\n  |   \\/   |      / _ \\  |_/ | | \\_|  | |__| |  \r\n  | |\\  /| |     / ___ \\     | |      |  __  |  \r\n _| |_\\/_| |_  _/ /   \\ \\_  _| |_    _| |  | |_ \r\n|_____||_____||____| |____||_____|__|____||____|\r\n .' ___  |     / \\     |_   \\  /   _||_   __  | \r\n/ .'   \\_|    / _ \\      |   \\/   |    | |_ \\_| \r\n| |   ____   / ___ \\     | |\\  /| |    |  _| _  \r\n\\ `.___]  |_/ /   \\ \\_  _| |_\\/_| |_  _| |__/ | \r\n `._____.'|____| |____||_____||_____||________| ";
@@ -39,7 +37,7 @@ public class Menu
                     }
 
                 case 2:
-                     ProcessViewPreviousScores(inputHandler, gameHistory);
+                     ProcessViewPreviousScores(gameHistory);
                      break;
 
                 case 0:
@@ -87,7 +85,7 @@ public class Menu
         }
     }
 
-    private void ProcessViewPreviousScores(InputHandler inputHandler, GameHistory gameHistory)
+    private void ProcessViewPreviousScores(GameHistory gameHistory)
     {
         Console.Clear();
         Console.WriteLine("Past Scores\n" + _lineBreak);

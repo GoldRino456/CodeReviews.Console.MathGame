@@ -1,6 +1,4 @@
-﻿using System;
-
-public class GameHistory
+﻿public class GameHistory
 {
 	private List<GameHistoryEntry> _gameHistory = new List<GameHistoryEntry>();
 

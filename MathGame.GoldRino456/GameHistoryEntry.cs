@@ -1,6 +1,4 @@
-﻿using System;
-
-public class GameHistoryEntry
+﻿public class GameHistoryEntry
 {
 	private int _gameType;
 	private int _score;
