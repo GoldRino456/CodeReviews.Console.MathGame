@@ -6,7 +6,7 @@ public class GameManager
     private Dictionary<int, string> _gameTypes = new Dictionary<int, string> { { 1, "+" }, { 2, "-" }, { 3, "*" }, { 4, "/" } };
     private Random _randomNumberGenerator = new();
     private int _gameType = -1;
-    private int _currentScore = 0;
+    private int _currentScore;
     private const int _maxRandomInt = 11;
     private string _nextMathProblem = "";
 
